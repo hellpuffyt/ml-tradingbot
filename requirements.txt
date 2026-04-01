@@ -1,0 +1,35 @@
+# ML-Powered Trading Bot with Sentiment Analysis
+# Requirements and dependencies
+
+# Core Trading Framework
+lumibot==4.4.58
+alpaca-trade-api==4.12.0
+
+# Machine Learning & NLP
+torch==2.3.0
+torchvision==0.18.0
+torchaudio==2.3.0
+transformers==4.36.2
+
+# Data & Analysis
+pandas==2.1.4
+numpy==1.24.3
+yfinance==0.2.33
+quantstats-lumi==0.0.59
+
+# Utilities & Network
+websockets>=12.0
+requests>=2.31.0
+
+# HuggingFace Hub (for model downloading)
+huggingface-hub>=0.19.0
+
+# Optional: For GPU acceleration
+# torch-cuda (install separately based on your CUDA version)
+# For CUDA 12.1: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Development Dependencies (optional)
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0
