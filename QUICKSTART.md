@@ -134,12 +134,6 @@ parameters={
 
 ---
 
-## Need Help?
 
-- GitHub Issues: [Report bugs](https://github.com/yourusername/ml-trading-bot/issues)
-- Discussions: [Ask questions](https://github.com/yourusername/ml-trading-bot/discussions)
-- Email: your.email@example.com
-
----
 
 **Happy Trading! 🚀📈**
