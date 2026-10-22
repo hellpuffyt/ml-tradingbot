@@ -36,11 +36,13 @@ See README "Quick start" / "Testing". Results are recorded below.
 | baseline `uv pip install --dry-run -r requirements.txt` (Py 3.13) | 1 | unsatisfiable: lumibot==4.4.58 needs quantstats-lumi>=1.1.3, file pins 0.0.59; `alpaca-trade-api==4.12.0` does not exist on PyPI (latest 3.2.0) |
 | `alpaca-trade-api` 3.2.0 + current lumibot | 1 | incompatible (websockets<11 vs yfinance>=13) → moved news to `alpaca-py` |
 | baseline tests | — | none existed |
+| first clean clone with top-level pins only: `pip install -r requirements.txt` | 124 | killed by a 30-min timeout (pip backtracking on lumibot's dependency tree) → requirements.txt is now a fully pinned generated lock |
+| fresh venv `pip install -r requirements.txt -r requirements-dev.txt` (pinned lock) | 0 | 140 s |
 | `python -m pytest` (after fixes) | 0 | 32 passed, 0 failed, 0 skipped |
 | `python tradingbot.py` without keys | 1 | clear message, no network or backtest |
 | `ALPACA_PAPER=false python tradingbot.py` | 1 | refuses live trading |
 | **stand-in** backtest: real LumiBot 4.6.24 + Yahoo prices, Mar 2025, **stub news + stub sentiment (always positive 0.9999)** | 0 | completed; 23 simulated fills of SPY bracket buys (first: 8 shares at 596.18 = ~5 % of 100k). Verifies wiring only; the numbers are meaningless as strategy results and are deliberately not reported as performance |
-| `uvx pip-audit` on the installed env | 1 | certifi 2025.11.12 (fixed in 2026.10.19; a fresh install resolves the fixed version), setuptools 80.10.2 (fix 83.0.0, but lumibot 4.6.24 requires setuptools<81) |
+| `uvx pip-audit` on the installed env | 1 | certifi 2025.11.12 (fix 2026.10.19, but lumibot 4.6.24 → polygon-api-client caps certifi <2026), setuptools 80.10.2 (fix 83.0.0, but lumibot 4.6.24 requires setuptools<81) |
 | history secret scan | — | **HIT** (see security) |
 
 ## Tests
