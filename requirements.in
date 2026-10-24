@@ -1,0 +1,5 @@
+# Direct dependencies. requirements.txt is generated from this file (see its header).
+lumibot==4.6.24
+alpaca-py==0.44.0
+transformers==5.20.2
+# torch==2.14.1 is appended to requirements.txt separately so the lock does not pin CUDA-only wheels.

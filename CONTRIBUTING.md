@@ -44,7 +44,8 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies with dev tools
 pip install -r requirements.txt
-pip install pytest black flake8 mypy
+pip install -r requirements-dev.txt
+# optional tools: pip install black flake8 mypy
 ```
 
 ---
@@ -294,3 +295,7 @@ Contributors will be:
 ---
 
 Thank you for helping make this project better! 🙏✨
+
+## Safety rules for this project
+- No live-trading code paths, no live endpoints, no credentials in source (enforced by `tests/test_safety.py`).
+- No performance or return claims in docs unless they come from a reproducible, documented run.
